@@ -1,0 +1,66 @@
+Page Composition with HTML and CSS
+
+Macro-Layouts - define the overall content flow and structure of the Page
+Micro-Layouts - only cover small portion of screen, may be re-used multiple times in a single Page
+
+grid or flexbox - most used
+
+The Box Model
+- layouts are determined by 
+- CSS box-sizing Property
+    - box-sizing: content-box;
+        - default style fo all box eleemnts
+        - width and height properties determine sie of just the content portion of box
+        - overall dimensions = specified size + padding + border + margin
+    - box-sizing: border-box;
+        - never the default
+        - width and height properties determine size of content, padding, and border
+        - overall dimensions = specified size + margin
+    
+Responsive Design
+- Media Queries
+    - allows us devs to get user's device info
+    - useful for themeing: light/dark
+    - useful for responsive design: size of screen
+- Flexible Designs
+    - designs that inherently work with many different screen sizes
+    - use rem and/or em instead of px
+        - hard values based on device/container font size
+    - use % instead of px
+        - soft values based on device/containter size
+    - min-width, min-height, max-width, max-height 
+        - hard vals on mix/max, soft on width/height 
+        - flexible but with bounds
+    - display: flex; (flexbox) is best
+    - display: grid; is more precise
+
+Flexbox - figma friend
+- flex-direction: row | row-reverse | column | column-reverse 
+    - row lays children in row
+- flex-wrap: wrap | nowrap
+    - wrap will wrap children to a new line if they dont fit within main axis
+    - nowrap prevent wrapping, will prioritize shrinking if flex-shrink 
+- flex-flow: <flex-direction> <flex-wrap>
+- justify-content: normal | center | start | end | stretch | space-between | space-around | space-evenly 
+    - controls position of non-growing children along main axis of container
+- align-items: normal | center | start | end | baseline | stretch
+    - controls position ofa ll children across axis of containter
+- flex-basis: <size>;
+    - determines starting size preshrink/grow of an an element in the main-axis direction of parent container
+    - either height or width
+    often combines with
+    - flex-grow
+        0 = no grow, 1 = fill extra space, 3 = grow 3X as siblings
+    - flex-shrink 
+        same as grow but row-reverse
+- flex: <flex-grow> <flex-shrink> <flex-basis>
+
+
+Grid 
+- grid-template-columns, grid-template-rows
+    - defines num and size of columns in grid
+    - key words: auto, min-content, max-content
+    - function options: minmax(), repeat()
+- grid-column, grid-row 
+    - number on child corresponds with part on grid
+

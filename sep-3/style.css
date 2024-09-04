@@ -1,0 +1,26 @@
+.flexy {
+    width: 100%;
+    height: 20em;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 10px; */
+    border-width: 5px;
+    border-color: cadetblue;
+    border-style: dashed;
+}
+
+#uno {
+    background-color: azure;
+}
+
+#dos {
+    background-color: aquamarine;
+    flex-grow: 1;
+}
+
+#tres {
+    background-color: aqua;
+    flex-grow: 2;
+}

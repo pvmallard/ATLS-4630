@@ -1,0 +1,20 @@
+JavaScript and the DOM
+
+- Handy Function: console.log()
+    - access JavaScript console in your browser
+
+Basic Syntax
+- semicolon is optional ; 
+- tabs dont matter, important for readability
+- single line comments //
+- multiline comments /**/
+Variables
+- NEVER USE var
+- let obeys scopes, improves code predicatability
+- const dont change
+
+Document Object Model - DOM
+- how JavaScript interacts with HTML and CSS
+- HTML elements/nodes can be obtained either through queries or tree navigation and stored
+- Elements/nodes can have their attributes/CSS properties manipulated as if they were JavaScript objects
+- JavaScript must be running

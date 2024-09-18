@@ -21,6 +21,7 @@ function changeColor() {
     document.querySelector("#THElink").textContent = 'yippee!'; 
     document.querySelector("#THElink").style.color = 'black'; 
     document.getElementById("flexy").style.borderColor = 'black';
+    document.querySelector("#THElink").style.textDecoration = "none";
 
     if(count >= 4){
         document.getElementById("uno").textContent= "OH, WAIT";

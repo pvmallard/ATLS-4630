@@ -1,14 +1,40 @@
 let count = 0; 
 let state = "rainbow";
+let isActive = false;
 
 let rainbowizer = document.querySelector("#change-color");
 rainbowizer.addEventListener('click', changeColor);
 rainbowizer.addEventListener('click', switchState("rainbow"));
+rainbowizer.addEventListener('mouseover', nowColor);
+rainbowizer.addEventListener('mouseout', unColor);
 
 let demonizer = document.querySelector("#change-text");
 demonizer.addEventListener('click', changeColorEvil);
 demonizer.addEventListener('click', changeText);
 demonizer.addEventListener('click', switchState("demon"));
+demonizer.addEventListener('mouseover', nowColorDemon);
+demonizer.addEventListener('mouseout', unColor);
+
+let linky = document.querySelector("#THElink");
+linky.addEventListener('mouseover', bignBold);
+linky.addEventListener('mouseout', tinytime);
+
+function nowColor() {
+    rainbowizer.style.backgroundColor = 'aqua';
+    rainbowizer.style.fontSize = '50px';
+};
+
+function nowColorDemon() {
+    demonizer.style.backgroundColor = 'red';
+    demonizer.style.fontSize = '50px';
+};
+
+function unColor() {
+    rainbowizer.style.backgroundColor = 'white';
+    demonizer.style.backgroundColor = 'white';
+    rainbowizer.style.fontSize = '20px';
+    demonizer.style.fontSize = '20px';
+};
 
 function switchState(string) {
     state = string;
@@ -22,6 +48,8 @@ function changeColor() {
     document.querySelector("#THElink").style.color = 'black'; 
     document.getElementById("flexy").style.borderColor = 'black';
     document.querySelector("#THElink").style.textDecoration = "none";
+
+    isActive = false;
 
     if(count >= 4){
         document.getElementById("uno").textContent= "OH, WAIT";
@@ -70,7 +98,7 @@ function changeColorEvil() {
     document.getElementById("uno").style.backgroundColor = 'black';
     document.getElementById("uno").textContent= "why'd you do that";
     document.getElementById("uno").style.color = 'white'; 
-
+    isActive = true;
 
     document.getElementById("dos").style.backgroundColor = 'black';
     document.getElementById("tres").style.backgroundColor = 'black';
@@ -93,4 +121,13 @@ function summonHim() {
     document.querySelector("#THElink").textContent = 'WHAT IS THIS'; 
     document.querySelector("#THElink").style.textDecoration = "underline overline";
     document.querySelector("#THElink").href = "https://www.youtube.com/watch?v=gASV_lYCwlo&themeRefresh=1"; 
+    isActive = true;
+};
+
+function bignBold() {
+    if(isActive){document.querySelector("#THElink").style.fontSize = "100px";};
+};
+
+function tinytime() {
+    document.querySelector("#THElink").style.fontSize = "20px";
 };

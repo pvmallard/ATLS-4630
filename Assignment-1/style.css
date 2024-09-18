@@ -41,8 +41,9 @@ a {
     text-decoration: none;
 }
 
-a, p {
+a, p, button {
     color: black;
+    font-size: 20px;
 }
 
 button {

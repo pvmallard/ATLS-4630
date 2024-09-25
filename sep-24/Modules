@@ -1,0 +1,37 @@
+Modules
+
+<!-- <script type="module"> to load js file that uses module -->
+
+- export pieces of code that need to be used in other files
+    - either by using keyword before declaration
+    - OR export{} to export any previously declared things
+
+export const year
+export {year}
+
+- import pieces of code that has been exported from other files
+
+import {
+    year
+} from './otherFile.js'
+
+- import as and export as to change name
+import {month as theMonth}
+
+- import * as for all exports from one file
+import * as DateStuff from './otherFile.js'
+
+- export default
+
+const year
+export default year;
+
+import year from './otherFile.js'
+
+- bundled javascript
+    - takes all of the code that belongs to a project, including libraries/external files
+    - bundling is a build step or process must complete before each code run
+    - build steps
+
+    - vite is the bundler we're using
+    npm create vite@latest

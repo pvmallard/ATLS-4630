@@ -38,6 +38,7 @@ const scores = [];
 startButton.addEventListener('click', startGame);
 
 function startGame() {
+  console.log("startgame");
   roundOne.classList.remove('hidden');
   startButton.classList.add('hidden');
 
@@ -45,6 +46,7 @@ function startGame() {
     const question = roundOneQuestions[i];
 
     function answerQuestion() {
+      console.log("answer is attempted");
       let score;
       if (question.input.value == question.answer) {
         score = 1;
@@ -59,11 +61,14 @@ function startGame() {
         question.reactionArea.classList.add('incorrect');
         question.reactionArea.classList.remove('correct');
       }
+      console.log("score " + score);
 
       if (scores.length <= i) {
         scores.push(score);
+        console.log("answer pushed, " + scores);
       } else {
         scores[i] = score;
+        console.log("answer changed, " + scores);
       }
     }
 
@@ -74,13 +79,15 @@ function startGame() {
     };
   }
 
-  form.addEventListener('submit', startRoundTwo);
+  //form.addEventListener('submit', startRoundTwo);
+  nextRoundButton.addEventListener('click', startRoundTwo);
 }
 
 function startRoundTwo(event) {
   event.preventDefault();
 
   if (scores.length < roundOneQuestions.length) {
+    console.log("entered");
     return;
   }
 
@@ -90,13 +97,15 @@ function startRoundTwo(event) {
 
   roundOneQuestions.forEach(question => question.deactivate());
 
-  for (let i = 0; i < roundTwoQuestions.size; i++) {
+  for (let i = 0; i < roundTwoQuestions.length; i++) {
     const question = roundTwoQuestions[i];
 
     function answerQuestion() {
+      console.log("answer 2 is attempted");
       let score;
-      if (question.input.value == question.answer) {
+      if (question.input.value === question.answer) {
         score = 1;
+        console.log(score);
 
         question.reactionArea.innerText = 'Congrats! You got the question right!';
         question.reactionArea.classList.add('correct');
@@ -108,12 +117,15 @@ function startRoundTwo(event) {
         question.reactionArea.classList.add('incorrect');
         question.reactionArea.classList.remove('correct');
       }
+      console.log("score " + score);
 
       const index = roundOneQuestions.length + i;
       if (scores.length <= index) {
         scores.push(score);
+        console.log("answer pushed, " + scores);
       } else {
-        scores[index] = score;
+        scores[index + 1] = score;
+        console.log("answer changed, " + scores);
       }
     }
 
@@ -124,8 +136,9 @@ function startRoundTwo(event) {
     };
   }
 
-  form.removeEventListener('submit', startRoundTwo);
-  form.addEventListener('submit', finishGame);
+  //form.removeEventListener('submit', startRoundTwo);
+  //form.addEventListener('submit', finishGame);
+  finishButton.addEventListener('click', finishGame);
 }
 
 function finishGame(event) {
@@ -134,6 +147,8 @@ function finishGame(event) {
   const totalLength = roundOneQuestions.length + roundTwoQuestions.length;
 
   if (scores.length < totalLength) {
+    console.log(scores.length);
+    console.log(totalLength);
     return;
   }
 
@@ -142,9 +157,10 @@ function finishGame(event) {
   finishButton.classList.add('hidden');
   finalScore.classList.remove('hidden');
 
-  const sum = 0;
+  let sum = 0;
   for (const score of scores) {
     sum += score;
+    console.log(sum);
   }
 
   finalScore.innerText = `You got ${sum} out of ${totalLength} questions right.`;

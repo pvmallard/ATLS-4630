@@ -1,0 +1,8 @@
+JavaScript Libraries
+
+- import and use directly
+- javascript library for -task here-
+- EX: lodash
+    - npm init
+    - npm create vite@latest
+    - npm install lodash

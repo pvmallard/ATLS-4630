@@ -1,36 +1,25 @@
 // fetch('https://jellybellywikiapi.onrender.com/api/beans') // fetch API
-//     .then(response => console.log(response)
-    //.then(header => console.log(header))
-
-// fetch('https://meowfacts.herokuapp.com/') // fetch API
 //     .then(response => response.json())
-//     .then(json => console.log(json.data[0]));
+//     .then(json => console.log(json.items[1]));
 
-fetch('https://jellybellywikiapi.onrender.com/api/beans') // fetch API
-    .then(response => response.json())
-    .then(json => console.log(json));
+const summonBeanA = document.getElementById('summon-a');
+summonBeanA.addEventListener('click', getABean);
+const summonBeanB = document.getElementById('summon-b');
+summonBeanB.addEventListener('click', getABean);
 
-// const addMeowFactsButton = document.getElementById('more-meow');
-// addMeowFactsButton.addEventListener('click', addMeowFactsToPage);
+async function getABean() {
+    console.log("bean time");
 
-// async function addMeowFactsToPage() { // can use awain in async
-//     // console.log("kitty");
+    const url = `https://jellybellywikiapi.onrender.com/api/beans`;
+    const response = await fetch(url); 
+    let json = await response.json();
 
-//     const count = 3; // could be user input controlled
-//     const url = `https://meowfacts.herokuapp.com/?count=${count}`;
+    randPage = Math.floor(Math.random() * 11) + 1;
+    randBean = Math.floor(Math.random() * 10);
 
-//     const response = await fetch(url); // waits for promise to resolve then adding to response
-//     const json = await response.json();
+    json.currentPage = randPage;
+    console.log(json);
+    console.log(json.items[randBean]);
 
-//     //console.log(json);
     
-//     for (const meowfact of json.data){
-//         //console.log(meowfact);
-
-//         //document.body.innerHTML += `<p>${meowfact}</p>`; // this is a bad idea, could download virus, lose event listener, etc
-
-//         const paragraph = document.createElement('p');
-//         paragraph.innerText = meowfact;
-//         document.body.append(paragraph);
-//     }
-// };
+}

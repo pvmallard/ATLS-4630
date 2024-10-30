@@ -1,0 +1,25 @@
+Frameworks and the like
+
+React created for Facebook, many highly interactive pages
+
+Angular
+- avoid AngularJS at all costs
+- coded in TypeScript instead of JavaScript
+- built of modules containing components and services
+
+React
+- released in 2013, created by facebook
+- entirely component-based framework, plugins have helped (app tasks, routing, web-workers, etc)
+- components created in HTML-ish syntax embedded within normal JavaScript: JSX (JavaScript Extended)
+- has 'shadow DOM' resulting in better UI in reactive/interactive situations
+
+Vue
+- from anti-React standpoint
+- script, template, style
+- SFCs - single file components - css, javascript, etc
+
+Svelte **
+- SFCs are created in .svelte files: script, style, everything else
+- better performance than either because it doesn't have a 'shadow DOM'
+- his favorite - so easy, black magic
+
